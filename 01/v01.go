@@ -15,7 +15,7 @@ func check(e error) {
 }
 
 func main() {
-	dat, err := os.ReadFile("01/01_real.txt")
+	dat, err := os.ReadFile("01/real.txt")
 	check(err)
 	lines := strings.Split(string(dat), "\n")
 	max := 0
