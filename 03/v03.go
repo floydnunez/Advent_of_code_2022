@@ -29,7 +29,7 @@ func main() {
 		wrongs = append(wrongs, bothstr)
 	}
 	totalP1 := calcTotal(wrongs)
-	fmt.Println("Part 1:", totalP1)
+	fmt.Println("Part 1:", totalP1) //8202
 
 	//Part 2
 	total := len(lines)
@@ -47,7 +47,7 @@ func main() {
 		//println("troth:", trothstr)
 	}
 	totalP2 := calcTotal(badges)
-	fmt.Println("Part 2:", totalP2)
+	fmt.Println("Part 2:", totalP2) //2864
 }
 
 func calcTotal(wrongs []string) int {
