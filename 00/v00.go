@@ -3,8 +3,6 @@ package main
 import (
 	"fmt"
 	"os"
-	"sort"
-	"strconv"
 	"strings"
 )
 
@@ -15,27 +13,14 @@ func check(e error) {
 }
 
 func main() {
-	dat, err := os.ReadFile("00/real.txt")
+	dat, err := os.ReadFile("00/example.txt")
 	check(err)
 	lines := strings.Split(string(dat), "\n")
 	max := 0
-	total := 0
-	var calories []int
-	for number, line := range lines {
-		if len(strings.TrimSpace(line)) > 0 {
-			intval, _ := strconv.Atoi(line)
-			total += intval
-		} else {
-			calories = append(calories, total)
-			total = 0
-		}
-		fmt.Println("as of", number, "total is", total)
-		if total > max {
-			max = total
-		}
+	for _, line := range lines {
+		println(line)
 	}
 	fmt.Println("Part 1:", max)
-	sort.Sort(sort.Reverse(sort.IntSlice(calories)))
-	fmt.Println("Part 2:", calories[0]+calories[1]+calories[2])
+	fmt.Println("Part 2:", max)
 
 }
