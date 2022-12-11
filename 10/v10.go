@@ -67,18 +67,19 @@ func printScreen(screen [240]string, cycle int) {
 }
 
 func draw(cycle int, screen [240]string, x int) [240]string {
-	pos := cycle % 40
-	row := cycle / 40
-	fmt.Println("draw: ", pos, x)
-	if pos >= x && pos < x+3 {
-		screen[pos+40*row-1] = "#"
+	correctCycle := cycle - 1 //had to correct this, otherwise I get weird errors on the border
+	pos := correctCycle % 40
+	row := correctCycle / 40
+	fmt.Println("draw: ", correctCycle, pos, row, x, pos+40*row)
+	if pos >= x-1 && pos <= x+1 {
+		screen[pos+40*row] = "#"
 	}
 	return screen
 }
 
 func cleanScreen(screen [240]string) [240]string {
 	for num := range screen {
-		screen[num] = " "
+		screen[num] = "."
 	}
 	return screen
 }
